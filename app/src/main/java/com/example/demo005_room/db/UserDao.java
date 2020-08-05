@@ -24,6 +24,10 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE uid IN (:userIds)")
     List<User> findAllByIds(int[] userIds);
 
+    //模糊查询：查找字段first_name包含指定内容的字段
+    @Query("SELECT * FROM user WHERE first_name LIKE '%'|| (:str)||'%'")
+    List<User> getLike(String str);
+
     //插入
     @Insert
     void insetAll(List<User> users);
@@ -38,11 +42,13 @@ public interface UserDao {
 
     /**
      * 批量删除
+     *
      * @param users
      * @return 删除条数
      */
     @Delete
     int deletes(List<User> users);
+
     /**
      * 单条更新
      *
@@ -60,4 +66,6 @@ public interface UserDao {
      */
     @Update
     int updates(List<User> users);
+
+
 }

@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText et_uid3;
     private EditText et_last_name3;
     private EditText et_first_name3;
+    private EditText et_keyword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +54,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         et_uid2 = findViewById(R.id.et_uid2);
         et_first_name3 = findViewById(R.id.et_first_name3);
         et_last_name3 = findViewById(R.id.et_last_name3);
+        et_keyword = findViewById(R.id.et_keyword);
         et_uid3 = findViewById(R.id.et_uid3);
         tv_content = findViewById(R.id.tv_content);
 
         findViewById(R.id.btn_add).setOnClickListener(this);
         findViewById(R.id.btn_delete).setOnClickListener(this);
         findViewById(R.id.btn_inquiry).setOnClickListener(this);
+        findViewById(R.id.btn_inquiry2).setOnClickListener(this);
         findViewById(R.id.btn_updata).setOnClickListener(this);
     }
 
@@ -105,6 +108,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     stringBuffer.append("").append(u).append(",").append("\n");
                 }
                 tv_content.setText(stringBuffer);
+                break;
+            case R.id.btn_inquiry2://模糊查询
+                List<User> 发 = db.userDao().getLike(et_keyword.getText().toString());
+                StringBuffer stringBuffer2 = new StringBuffer();
+                for (User u : 发) {
+                    stringBuffer2.append("").append(u).append(",").append("\n");
+                }
+                tv_content.setText(stringBuffer2);
                 break;
         }
     }
