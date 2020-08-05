@@ -1,4 +1,3 @@
-[TOC]
 # 1、简介
 Room 在 SQLite 上提供了一个抽象层，以便在充分利用SQLite的强大功能的同时，能够流畅地访问数据库。
 
@@ -321,8 +320,6 @@ Access和SQL Server使用+号。DB2、Oracle、PostgreSQL、SQLite和Open Office
 看来SQL的知识点也要懂点啊！
 
 ```
-
-[项目地址](https://github.com/luuuzi007/Demo005_room.git)
 
 
 
