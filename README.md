@@ -18,7 +18,7 @@ Room 在 SQLite 上提供了一个抽象层，以便在充分利用SQLite的强�
 # 3、使用
 ### 导入room库
 
-```
+```gradle
 allprojects {
     repositories {
         maven {url 'https://maven.google.com' }//添加moven
@@ -29,7 +29,7 @@ allprojects {
 }
 ```
 
-```
+```gradle
 //    导入room库
     def room_version = "1.1.1"
     // optional - Guava support for Room, including Optional and ListenableFuture
@@ -39,7 +39,7 @@ allprojects {
 ### 1、创建实体类
 @Entity注解的类，并利用该类的所有字段作为表的列名来创建表。
 
-```
+```java
 /**
  * @author: Luuuzi
  * @date: 2020-08-04
@@ -78,7 +78,7 @@ public class User {
 ```
 ### 2、创建接口定义访问数据库的方法
 
-```
+```java
 @Dao
 public interface UserDao {
     //查询表里面所有数据
@@ -134,7 +134,7 @@ public interface UserDao {
 
 ### 3、创建访问数据库的对象
 该类主要作用是创建数据库和创建Daos（data access objects，数据访问对象）
-```
+```java
 /**
  * @author: Luuuzi
  * @date: 2020-08-04
@@ -149,7 +149,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
 ## 调用
 ==注意：通常，在整个APP中，只需要一个Room database实例(一般设置成单例)==
-```
+```java
 /**
  * @author: Luuuzi
  * @date: 2020-08-04
